@@ -1,0 +1,14 @@
+#!/bin/sh
+
+SHINKEN_ROOT=${HOME}/Projects/shinken
+
+SHINKEN_MODULES=${SHINKEN_ROOT}/modules
+
+shinken search all | \
+    cut -d' ' -f1 | \
+    decolor | \
+while read module
+do
+    shinken install --download-only ${module}
+    mv /tmp/${module}.tar.gz ${SHINKEN_MODULES}
+done
