@@ -1,0 +1,17 @@
+#!/bin/sh
+
+SHINKEN_ROOT=${HOME}/Projects/shinken
+
+PYTHON_MODULES=${SHINKEN_ROOT}/python-modules
+
+while read module
+do
+    pip download -d ${PYTHON_MODULES} "${module}"
+done <<EOF
+pip
+py2pack
+pymongo>=3.0.3
+requests
+arrow
+bottle==0.12.8
+EOF
