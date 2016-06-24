@@ -15,7 +15,7 @@ decolor() {
 
 SHINKEN_ROOT=${HOME}/Projects/shinken
 
-SHINKEN_MODULES=${SHINKEN_ROOT}/modules
+SHINKEN_MODULES=${SHINKEN_ROOT}/shinken-modules
 
 shinken search all | \
     cut -d' ' -f1 | \
