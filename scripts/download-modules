@@ -1,5 +1,18 @@
 #!/bin/sh
 
+######
+
+# Shinken adds terminal color codes to its' module list.
+# Unfortunately, they interfere with scripting and must be
+# stripped from Shinken output...
+#
+decolor() {
+    perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | \
+        col -b 
+    }
+    
+######
+
 SHINKEN_ROOT=${HOME}/Projects/shinken
 
 SHINKEN_MODULES=${SHINKEN_ROOT}/modules
